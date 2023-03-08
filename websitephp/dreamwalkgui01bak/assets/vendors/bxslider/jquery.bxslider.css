@@ -1,0 +1,281 @@
+/**
+ * Name: bxslider.css
+ *	
+ *	T.O.C
+ *
+ *	=Basics
+ *	=Slider theme
+ *	=Loader
+ *	=Pager
+ *	=Directional Controls (Next / Prev)
+ *	=Auto Controls (Start / Stop)
+ *	=Pager with auto controls hibrid layout	
+ *	=Image Captions
+ *
+ */
+
+ 
+ /* ==========================================================================
+   =Basics
+   ========================================================================== */
+
+	.bx-wrapper {
+		position: relative;
+		padding: 0;
+		margin: 0 auto 60px auto;
+	}
+	
+	.bx-wrapper ul { list-style: none; }
+	
+	.bx-wrapper img {
+		display: block;
+		max-width: 100%;
+	}
+
+/* ==========================================================================
+   =Slider theme
+   ========================================================================== */
+
+	.bx-wrapper .bx-viewport {
+		/*fix other elements on the page moving (on Chrome)*/
+		-webkit-transform: translatez(0);
+		    -moz-transform: translatez(0);
+		   -ms-transform: translatez(0);
+			-o-transform: translatez(0);
+			   transform: translatez(0);
+	}
+	
+	/**
+ 	 * 1. z-index is 55 because .bx-wrapper ul li is 50
+ 	 */
+	
+	.bx-wrapper .bx-pager,
+	.bx-wrapper .bx-controls-auto {
+		position: absolute;
+		z-index: 55; /* 1 */
+		bottom: 30px;
+		width: 100%;
+	}
+
+/* ==========================================================================
+   =Loader
+   ========================================================================== */
+
+	.bx-wrapper .bx-loading {
+		position: absolute;
+		z-index: 10000;
+		top: 0;
+		left: 0;
+		width: 100%;
+		min-height: 50px;
+		height: 100%;
+		background: #fff url(images/bx_loader.gif) no-repeat center center;
+	}
+
+/* ==========================================================================
+   =Pager
+   ========================================================================== */
+
+	.bx-wrapper .bx-pager {
+		padding-top: 20px;
+		color: #111;
+		text-align: center;
+	}
+	
+	.bx-wrapper .bx-pager .bx-pager-item,
+	.bx-wrapper .bx-controls-auto .bx-controls-auto-item { display: inline-block; }
+	
+	.bx-wrapper .bx-pager.bx-default-pager a {
+		display: block;
+		width: 10px;
+		height: 10px;
+		border-radius: 5px;
+		outline: 0;
+		margin: 0 5px;
+		background: #111;
+		text-indent: -9999px;	
+	}
+	
+	.bx-wrapper .bx-pager.bx-default-pager a:hover,
+	.bx-wrapper .bx-pager.bx-default-pager a.active { background: #245dc1; }
+
+/* ==========================================================================
+   =Directional Controls (Next / Prev)
+   ========================================================================== */
+
+	.bx-wrapper .bx-prev {
+		left: 0;
+		background: url(../../images/left-2.png) no-repeat center center;
+	}
+	
+	.bx-wrapper .bx-next {
+		right: 0;
+		background: url(../../images/right-2.png) no-repeat center center;
+	}
+	
+	/**
+	 * 1. changing the z-index from the original 9999 to 
+	 */
+	
+	.bx-wrapper .bx-controls-direction a {
+		position: absolute;
+		z-index: 1000; /* 1 */
+		top: 50%;
+		width: 48px;
+		height: 48px;
+		outline: 0;
+		margin-top: -24px;
+		background-color: #191919;
+		opacity: 0.5;
+		text-indent: -9999px;
+	}
+	
+	.bx-wrapper .bx-controls-direction a:hover { opacity: 1; }
+	
+	.bx-wrapper .bx-controls-direction a.disabled { display: none; }
+
+/* ==========================================================================
+   =Auto Controls (Start / Stop)
+   ========================================================================== */
+
+	.bx-wrapper .bx-controls-auto { text-align: center; }
+	
+	.bx-wrapper .bx-controls-auto .bx-start {
+		display: block;
+		width: 10px;
+		height: 11px;
+		outline: 0;
+		margin: 0 3px;
+		background: url(images/controls.png) -86px -11px no-repeat;
+		text-indent: -9999px;
+	}
+	
+	.bx-wrapper .bx-controls-auto .bx-start:hover,
+	.bx-wrapper .bx-controls-auto .bx-start.active { background-position: -86px 0; }
+	
+	.bx-wrapper .bx-controls-auto .bx-stop {
+		display: block;
+		width: 9px;
+		height: 11px;
+		outline: 0;
+		margin: 0 3px;
+		background: url(images/controls.png) -86px -44px no-repeat;
+		text-indent: -9999px;
+	}
+	
+	.bx-wrapper .bx-controls-auto .bx-stop:hover,
+	.bx-wrapper .bx-controls-auto .bx-stop.active { background-position: -86px -33px; }
+
+/* ==========================================================================
+   =Pager with auto controls hibrid layout	
+   ========================================================================== */
+
+	.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+		width: 80%;
+		text-align: left;	
+	}
+	
+	.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+		right: 0;
+		width: 35px;
+	}
+
+/* ==========================================================================
+   =Image Captions
+   ========================================================================== */
+
+	.bx-wrapper .bx-caption {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background: rgba(80, 80, 80, 0.75);
+	}
+	
+	.bx-wrapper .bx-caption span {
+		display: block;
+		padding: 10px;
+		color: #fff;
+	}
+	
+	
+	.testimonial-slider .testimonial { margin-bottom: 0; }
+	
+	.testimonial-slider-control {
+		margin-bottom: 0;
+		margin-left: 90px;
+		list-style: none;
+	}
+	
+	.testimonial-slider-control li { float: left; }
+	
+	.testimonial-slider-control.alt  li {
+		width: 75px;
+		height: 75px;
+	}
+	
+	.testimonial-slider-control li a img { 
+		display: block;
+		opacity: 0.4;
+		-webkit-transition: all 0.3s;
+				transition: all 0.3s;
+	}
+	
+	.testimonial-slider-control li a.active img,
+	.testimonial-slider-control li a:hover img { opacity: 1; }
+	
+	.features-slider { margin-bottom: 50px; }
+	
+	.features-slider .bx-wrapper .bx-controls-direction a {
+		width: 40px;
+		height: 78px;
+		margin-top: -39px;
+		background-color: transparent;
+	}
+	
+	.features-slider .bx-wrapper .bx-prev {
+		left: -80px;
+		background: url(../../images/left-3.png) no-repeat center center;
+	}
+	
+	.features-slider .bx-wrapper .bx-next {
+		right: -80px;
+		background: url(../../images/right-3.png) no-repeat center center;
+	}
+	
+	.features-slider .bx-wrapper .bx-pager,
+	.features-slider .bx-wrapper .bx-controls-auto { display: none; }
+	
+	.portfolio-strip-slider { margin-bottom: 50px; }
+	.portfolio-strip-slider .portfolio-item { margin-bottom: 0; }
+	
+	.images-slider { margin-bottom: 30px; }
+	
+	@media (min-width: 768px) and (max-width: 979px) {
+		
+		.testimonial-slider-control.alt { margin-left: 0; }
+		
+		.testimonial-slider-control.alt li {
+			width: 45px;
+			height: 45px;
+		}
+		
+	}
+	
+	@media (max-width: 767px) {
+		
+		.testimonial-slider-control { margin-left: 0; }
+		
+		.testimonial-slider-control li,
+		.testimonial-slider-control.alt li {
+			width: 42px;
+			height: 42px;
+		}
+		
+		.features-slider .bx-wrapper .bx-pager,
+		.features-slider .bx-wrapper .bx-controls-auto { 
+			display: block;
+			bottom: -50px;
+		}
+		
+	}
